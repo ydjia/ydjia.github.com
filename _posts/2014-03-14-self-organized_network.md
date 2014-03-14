@@ -50,7 +50,7 @@ ECTM：the Environment Control of Tobacco Mellowing，中文名：基于无线�
 **组网数据包**
 
 组网数据包的数据格式如下图
-![datapackage](/assets/image/self-organized_network/networkpackage.png)
+![datapackage](/assets/images/self-organized_network/networkpackage.png)
 **算法描述**
 
 *对于汇聚节点*

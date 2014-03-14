@@ -9,7 +9,7 @@ tags: [mysql, original, innodb]
 ##mysql innodb存储引擎
 下面简单的介绍一下innodb的存储引擎
 ###内存缓冲池
-![buffer pool](/assets/image/mysql_undo_redo/bufferpool.png)
+![buffer pool](/assets/images/mysql_undo_redo/bufferpool.png)
 如果mysql不用内存缓冲池，每次读写数据时，都需要访问磁盘，必定会大大增加I/O请求，导致效率低下。所以Innodb引擎在读写数据时，把相应的数据和索引载入到内存中的缓冲池(buffer pool)中，一定程度的提高了数据读写的速度。
 
 buffer pool：占最大块内存，用来存放各种数据的缓存包括有索引页、数据页、undo页、插入缓冲、自适应哈希索引、innodb存储的锁信息、数据字典信息等。工作方式总是将数据库文件按页(每页16k)读取到缓冲池，然后按最近最少使用(lru)的算法来保留在缓冲池中的缓存数据。如果数据库文件需要修改，总是首先修改在缓存池中的页(发生修改后即为脏页dirty page)，然后再按照一定的频率将缓冲池的脏页刷新到文件。
@@ -86,7 +86,7 @@ buffer pool中维护一个按脏页修改先后顺序排列的链表，叫flush_
 
 <li>**事务回滚**
 
-![rollback1](/assets/image/mysql_undo_redo/rollback1.png)
+![rollback1](/assets/images/mysql_undo_redo/rollback1.png)
 F1～F6是某行列的名字，1～6是其对应的数据。后面三个隐含字段分别对应该行的事务号和回滚指针。假如这条数据是刚INSERT的，可以认为ID为1，其他两个字段为空。
 
 举例说明数据行更新以及回滚的过程：
