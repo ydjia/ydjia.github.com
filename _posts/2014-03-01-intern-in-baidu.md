@@ -1,9 +1,3 @@
----
-layout: post
-title: "百度实习总结"
-category: essay
-tags: []
----
 #写在前面
 
 
