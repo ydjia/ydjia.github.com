@@ -1,3 +1,9 @@
+---
+layout: post
+title: "百度实习总结"
+category: essay
+tags: [original]
+---
 #写在前面
 
 
