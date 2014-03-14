@@ -101,7 +101,7 @@ F1～F6是某行列的名字，1～6是其对应的数据。后面三个隐含�
 4. 记录redo log
 
 **事务2：再次更改该行数据的值**
-![rollback2](/assets/image/mysql_undo_redo/rollback2.png)
+![rollback2](/assets/images/mysql_undo_redo/rollback2.png)
 
 与事务1相同，此时undo log中有两行记录，并且通过回滚指针连在一起。
 因此，如果undo log一直不删除，则会通过当前记录的回滚指针回溯到该行创建时的初始内容。在Innodb中存在purge线程，它会查询那些比现在最老的活动事务还早的undo log，并删除它们，从而保证undo log文件不至于无限增长。
