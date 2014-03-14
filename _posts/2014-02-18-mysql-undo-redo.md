@@ -9,6 +9,7 @@ tags: [mysql, original, innodb]
 ##mysql innodb存储引擎
 下面简单的介绍一下innodb的存储引擎
 ###内存缓冲池
+![buffer pool](/assets/image/mysql_undo_redo/bufferpool.png)
 如果mysql不用内存缓冲池，每次读写数据时，都需要访问磁盘，必定会大大增加I/O请求，导致效率低下。所以Innodb引擎在读写数据时，把相应的数据和索引载入到内存中的缓冲池(buffer pool)中，一定程度的提高了数据读写的速度。
 
 buffer pool：占最大块内存，用来存放各种数据的缓存包括有索引页、数据页、undo页、插入缓冲、自适应哈希索引、innodb存储的锁信息、数据字典信息等。工作方式总是将数据库文件按页(每页16k)读取到缓冲池，然后按最近最少使用(lru)的算法来保留在缓冲池中的缓存数据。如果数据库文件需要修改，总是首先修改在缓存池中的页(发生修改后即为脏页dirty page)，然后再按照一定的频率将缓冲池的脏页刷新到文件。
@@ -40,6 +41,7 @@ redo log就是保存执行的SQL语句到一个指定的Log文件，当mysql执�
 	innodb_log_file_size = 128M
 	innodb_log_file_in_group = 2
 	innodb_log_group_home_dir = /home/mysql/local/mysql/var
+
 ####undo log
 为了满足事务的原子性，在操作任何数据之前，首先将数据备份到Undo Log，然后进行数据的修改。如果出现了错误或者用户执行了ROLLBACK语句，系统可以利用Undo Log中的备份将数据恢复到事务开始之前的状态。与redo log不同的是，磁盘上不存在单独的undo log文件，它存放在数据库内部的一个特殊段(segment)中，这称为undo段(undo segment)，undo段位于共享表空间内。
 
@@ -84,6 +86,7 @@ buffer pool中维护一个按脏页修改先后顺序排列的链表，叫flush_
 
 <li>**事务回滚**
 
+![rollback1](/assets/image/mysql_undo_redo/rollback1.png)
 F1～F6是某行列的名字，1～6是其对应的数据。后面三个隐含字段分别对应该行的事务号和回滚指针。假如这条数据是刚INSERT的，可以认为ID为1，其他两个字段为空。
 
 举例说明数据行更新以及回滚的过程：
@@ -98,6 +101,7 @@ F1～F6是某行列的名字，1～6是其对应的数据。后面三个隐含�
 4. 记录redo log
 
 **事务2：再次更改该行数据的值**
+![rollback2](/assets/image/mysql_undo_redo/rollback2.png)
 
 与事务1相同，此时undo log中有两行记录，并且通过回滚指针连在一起。
 因此，如果undo log一直不删除，则会通过当前记录的回滚指针回溯到该行创建时的初始内容。在Innodb中存在purge线程，它会查询那些比现在最老的活动事务还早的undo log，并删除它们，从而保证undo log文件不至于无限增长。
