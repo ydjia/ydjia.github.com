@@ -17,7 +17,7 @@ comments: false
 ---
 ###友情链接
 
-* 无敌风骚小乖羊: [liupy525](http://www.liupeiyang.com/)
+* 无敌风骚小乖羊: <a href="http://www.liupeiyang.com/" target="_blank">liupy525</a>
 
 ---
 
