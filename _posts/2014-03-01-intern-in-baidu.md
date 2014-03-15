@@ -2,7 +2,7 @@
 layout: post
 title: "百度实习总结"
 category: essay
-tags: [original]
+tags: [original, summary]
 ---
 
 
