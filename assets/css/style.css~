@@ -1,3 +1,14 @@
+/*------------------------------------
+* sext
+*
+* @author linghua.zhang@me.com
+* @link http://lhzhang.com/
+* @update 2011-12-20
+* 
+* |/ | (~ (~
+* |\.|._)._)
+* --------------------------------- */
+
 @import url(http://fonts.googleapis.com/css?family=Galdeano);
 @import url(http://fonts.googleapis.com/css?family=Electrolize);
 @import url(http://fonts.googleapis.com/css?family=Cuprum);
@@ -160,20 +171,3 @@ background-color: #ebebeb;
 border-color: #adadad;
 text-decoration: none;
 }
-.label {
-    display: inline;
-    padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: bold;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em;
-    background-color: #999;
-}
-.panel {
-margin: 10px 0 20px 0;
-}
-

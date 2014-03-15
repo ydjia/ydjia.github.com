@@ -5,21 +5,23 @@ layout: default
 <script src="/assets/prettify/prettify.js" type="text/javascript"></script>
 <script type="text/javascript" src="/assets/js/outliner.js"></script>
 <section class="post">
-{% if page.categories %}
-<span class="categories">
-  in category
-  {% for cat in page.categories %}
-  <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
-  {% endfor %}
-</span>
-{% endif %}
-{% if page.tags %}
-<span class="tags">
-  ( tagged with 
-  {% for tag in page.tags %}
-  <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
-  {% endfor %})
-</span>
+<div class="panel">
+  {% if page.categories %}
+  <span class="categories">
+    <span class="label">Category</span>
+    {% for cat in page.categories %}
+    <a href="/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>
+    {% endfor %}
+  </span>
+  {% endif %}
+  {% if page.tags %}
+  <span class="tags">
+    <span class="label">Tags</span>
+    {% for tag in page.tags %}
+    <a href="/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>
+    {% endfor %}
+  </span>
+</div>
 {% endif %}
 {{ content }}
 </section>
