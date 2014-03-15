@@ -4,6 +4,6 @@ url: http://ydjia.github.io
 author: ydjia
 pygments: true
 safe: false
-paginate: 16
+paginate: 5
 auto: true
 

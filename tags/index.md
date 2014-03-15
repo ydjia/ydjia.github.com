@@ -3,11 +3,15 @@ title: tags
 layout: page
 ---
 
-<div id='tag_cloud'>
+<!--<div id='tag_cloud' class="tag_box">
 {% for tag in site.tags %}
 <a href="#{{ tag[0] }}" title="{{ tag[0] }}" rel="{{ tag[1].size }}">{{ tag[0] }} </a>
 {% endfor %}
-</div>
+</div>-->
+<ul class="tag_box inline">
+  {% assign tags_list = site.tags %}
+  {% include tags_list %}
+</ul>
 
 <ul class="listing">
 {% for tag in site.tags %}

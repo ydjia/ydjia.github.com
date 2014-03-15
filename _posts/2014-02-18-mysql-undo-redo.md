@@ -6,6 +6,9 @@ category: technique
 tags: [mysql, original, innodb]
 ---
 众所周知，mysql支持多种存储引擎，现在常用的是MyISAM和InnoDB。MyISAM相对简单，但不支持事务，而InnoDB是事务安全型的。而InnoDB的事务处理离不开undo_log和redo_Log。
+
+<!--more-->
+
 ##mysql innodb存储引擎
 下面简单的介绍一下innodb的存储引擎
 ###内存缓冲池
