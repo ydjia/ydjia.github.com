@@ -82,6 +82,7 @@ font-size:11.25px;
 font-weight:700;
 color:#fff;
 text-transform:uppercase;
+
 background-color:#999;
 -webkit-border-radius:3px;
 -moz-border-radius:3px;
@@ -160,20 +161,9 @@ background-color: #ebebeb;
 border-color: #adadad;
 text-decoration: none;
 }
-.label {
-    display: inline;
-    padding: .2em .6em .3em;
-    font-size: 75%;
-    font-weight: bold;
-    line-height: 1;
-    color: #fff;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    border-radius: .25em;
-    background-color: #999;
-}
 .panel {
 margin: 10px 0 20px 0;
 }
-
+.panel span{
+margin:0 5px;
+}
