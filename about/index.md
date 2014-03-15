@@ -10,7 +10,7 @@ comments: false
 ---
 ### 联系方式
 
-* github: [https://github.com/ydjia](https://github.com/ydjia )
+* github: [ydjia](https://github.com/ydjia )
 * 新浪微博: [静雨流风](http://weibo.com/u/2477436734/)
 * 邮箱: jia1234168 *at* gmail *dot* com
 
